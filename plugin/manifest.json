@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "OJ-Remote-Submit",
-  "version": "1.0",
+  "version": "1.0.0.1",
   "description": "读取 URL 自动提交代码",
   "author": "XiaoCRQ",
   "homepage_url": "https://github.com/XiaoCRQ",
