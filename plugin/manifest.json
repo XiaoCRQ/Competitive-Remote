@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "OJ-Remote-Submit",
+  "version": "1.0",
+  "description": "读取 URL 自动提交代码",
+  "author": "XiaoCRQ",
+  "homepage_url": "https://github.com/XiaoCRQ",
+  "license": "MIT",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "oj-remote-submit@local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["tabs", "scripting", "storage"],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; connect-src ws://127.0.0.1:2333 http://127.0.0.1:2333"
+  },
+  "keywords": ["OJ", "remote", "submit", "competitive programming", "open-source"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XiaoCRQ"
+  }
+}
+
