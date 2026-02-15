@@ -1,1 +1,1 @@
-# Competitive-Remote
+# Faster-OJ

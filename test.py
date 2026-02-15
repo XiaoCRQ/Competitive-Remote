@@ -27,7 +27,7 @@ int main() {
 }"""
 
 async def send_json():
-    uri = "ws://127.0.0.1:2333"  # 非加密 WS，不需要 ssl
+    uri = "ws://127.0.0.1:10044"  # 非加密 WS，不需要 ssl
 
     print("正在连接到服务器...")
     async with websockets.connect(uri) as websocket:

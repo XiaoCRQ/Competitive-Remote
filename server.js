@@ -1,9 +1,9 @@
 const WebSocket = require("ws");
 
 // 创建 WebSocket 服务器（普通 WS，不加密）
-const wss = new WebSocket.Server({ port: 2333, host: "127.0.0.1" });
+const ws = new WebSocket.Server({ port: 10043, host: "127.0.0.1" });
 
-wss.on("connection", (ws, req) => {
+ws.on("connection", (ws, req) => {
   console.log("客户端已连接:", req.socket.remoteAddress);
 
   // 接收到客户端消息时触发
@@ -30,5 +30,5 @@ wss.on("connection", (ws, req) => {
   ws.on("error", (err) => console.error("WebSocket 错误:", err));
 });
 
-console.log("ws://127.0.0.1:2333 已启动");
+console.log("ws://127.0.0.1:10043 已启动");
 

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "OJ-Remote-Submit",
+  "name": "Faster-Oj",
   "version": "1.0.0.1",
   "description": "读取 URL 自动提交代码",
   "author": "XiaoCRQ",
@@ -15,7 +15,12 @@
   "permissions": ["tabs", "scripting", "storage"],
   "host_permissions": ["*://*/*"],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
   },
   "content_scripts": [
     {
@@ -25,7 +30,7 @@
     }
   ],
   "content_security_policy": {
-    "extension_pages": "default-src 'self'; connect-src ws://127.0.0.1:2333 http://127.0.0.1:2333"
+    "extension_pages": "default-src 'self'; connect-src ws://127.0.0.1:10044 http://127.0.0.1:10044"
   },
   "keywords": ["OJ", "remote", "submit", "competitive programming", "open-source"],
   "repository": {
@@ -33,4 +38,3 @@
     "url": "https://github.com/XiaoCRQ"
   }
 }
-
