@@ -8,7 +8,7 @@
   "license": "MIT",
   "browser_specific_settings": {
     "gecko": {
-      "id": "oj-remote-submit@local",
+      "id": "Faster-OJ@local",
       "strict_min_version": "109.0"
     }
   },
