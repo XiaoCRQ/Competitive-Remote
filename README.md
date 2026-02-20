@@ -40,6 +40,10 @@
 
 * [Releases](https://github.com/XiaoCRQ/Faster-OJ/releases) 处下载最新版本安装至浏览器即可
 
+## 🖥️ 配套插件
+
+* [Faster-OJ.nvim](https://github.com/XiaoCRQ/Faster-OJ.nvim)
+
 ## 📜 开源协议
 
 本项目采用 [GNU GPL v3](https://www.google.com/search?q=https://www.gnu.org/licenses/gpl-3.0) 协议。
