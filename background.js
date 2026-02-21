@@ -23,6 +23,7 @@ const wsManager = {
     // 监听配置变化
     chrome.storage.onChanged.addListener((changes) => {
       if (changes.wsUrl) {
+        console.log('[WS] 地址变更，正在重连:', changes.wsUrl.newValue);
         this.url = changes.wsUrl.newValue;
         this.reconnect();
       }
