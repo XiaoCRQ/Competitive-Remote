@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Faster-OJ",
-  "version": "1.0.0",
+  "version": "1.0.2.1",
   "description": "通过 WebSocket 接收包含 URL 和代码的任务，实现各大 OJ 平台的自动化代码提交。",
   "author": "XiaoCRQ",
   "homepage_url": "https://github.com/XiaoCRQ/Faster-OJ",

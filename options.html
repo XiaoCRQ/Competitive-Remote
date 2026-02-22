@@ -16,11 +16,19 @@
 </head>
 <body>
   <h2>Faster-OJ 首选项</h2>
+  
   <div class="field">
-    <label for="wsUrl">WebSocket 地址</label>
-    <input type="text" id="wsUrl" placeholder="ws://127.0.0.1:10044">
-    <div class="hint">例如：ws://127.0.0.1:10044</div>
+    <label for="host">主机地址 (Host)</label>
+    <input type="text" id="host" placeholder="127.0.0.1">
+    <div class="hint">例如：127.0.0.1 或 localhost</div>
   </div>
+  
+  <div class="field">
+    <label for="port">端口号 (Port)</label>
+    <input type="number" id="port" placeholder="10044">
+    <div class="hint">例如：10044</div>
+  </div>
+
   <button id="save">保存设置</button>
   <div id="status"></div>
 

@@ -2,7 +2,8 @@
  * 配置项
  */
 const CONFIG = {
-  defaultWsUrl: 'ws://127.0.0.1:10044',
+  defaultHost: '127.0.0.1',
+  defaultPort: '10044',
   reconnectInterval: 1000, // 1秒重连
   heartbeatInterval: 25000, // 25秒心跳
   msgExpiry: 10000 // 消息有效期
@@ -13,19 +14,31 @@ const CONFIG = {
  */
 const wsManager = {
   ws: null,
-  url: CONFIG.defaultWsUrl,
+  url: `ws://${CONFIG.defaultHost}:${CONFIG.defaultPort}`,
   lockReconnect: false,
 
   async init() {
-    const data = await chrome.storage.local.get('wsUrl');
-    this.url = data.wsUrl || CONFIG.defaultWsUrl;
+    // 读取 host 和 port
+    const data = await chrome.storage.local.get(['host', 'port']);
+    const currentHost = data.host || CONFIG.defaultHost;
+    const currentPort = data.port || CONFIG.defaultPort;
+    this.url = `ws://${currentHost}:${currentPort}`;
 
     // 监听配置变化
     chrome.storage.onChanged.addListener((changes) => {
-      if (changes.wsUrl) {
-        console.log('[WS] 地址变更，正在重连:', changes.wsUrl.newValue);
-        this.url = changes.wsUrl.newValue;
-        this.reconnect();
+      if (changes.host || changes.port) {
+        // 重新获取最新的完整配置进行拼接
+        chrome.storage.local.get(['host', 'port'], (newData) => {
+          const newHost = newData.host || CONFIG.defaultHost;
+          const newPort = newData.port || CONFIG.defaultPort;
+          const newUrl = `ws://${newHost}:${newPort}`;
+
+          if (this.url !== newUrl) {
+            console.log(`[WS] 地址变更，正在重连: ${newUrl}`);
+            this.url = newUrl;
+            this.reconnect();
+          }
+        });
       }
     });
 
